@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Energy Consumption Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <h1>EV Energy Consumption Prediction</h1>
+
+    <!-- Dataset Upload -->
+    <h2>Upload Dataset</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput" />
+        <button type="submit">Upload Dataset</button>
+    </form>
+
+    <!-- Display Dataset -->
+    <h2>Dataset</h2>
+    <div id="datasetTable"></div>
+
+    <!-- Select Model and View Results -->
+    <h2>Select Model and View Results</h2>
+    <select id="modelSelect">
+        <option value="RandomForest">Random Forest</option>
+        <option value="MLP">MLP</option>
+        <option value="LightGBM">LightGBM</option>
+    </select>
+    <button id="runModelBtn">Run Model</button>
+
+    <!-- Display Model Results -->
+    <h3>Model Results</h3>
+    <div id="modelResults">
+        <p>RMSE: <span id="rmse"></span></p>
+        <p>MAE: <span id="mae"></span></p>
+    </div>
+
+    <!-- Display Chart -->
+    <h3>Model Comparison</h3>
+    <canvas id="modelChart" width="400" height="200"></canvas>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
